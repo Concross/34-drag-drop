@@ -9,3 +9,10 @@ export const categoryCreate = category => {
     payload: category,
   };
 };
+
+export const categoryUpdate = category => {
+  return {
+    type: 'CATEGORY_UPDATE',
+    payload: category,
+  };
+};

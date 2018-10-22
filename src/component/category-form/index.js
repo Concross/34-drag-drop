@@ -5,8 +5,10 @@ export default class CategoryForm extends React.Component {
     super(props);
 
     this.state = {
-      name: this.props.category ? this.props.category.name : '',
+      title: this.props.category ? this.props.category.title : '',
       budget: this.props.category ? this.props.category.budget : '',
+      id: this.props.category ? this.props.category.id : '',
+      timestamp: this.props.category ? this.props.category.timestamp : '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -28,10 +30,10 @@ export default class CategoryForm extends React.Component {
       <div className="category-form-container">
         <form id="category-form" onSubmit={this.handleSubmit}>
           <fieldset>
-            <legend>Category Form</legend>
-            <label htmlFor="name">
+            <legend>{this.props.category ? this.props.category.title : 'Category Form'}</legend>
+            <label htmlFor="title">
               Category:
-              <input type="text" name="name" value={this.state.name} onChange={this.handleChange} autoComplete="off" />
+              <input type="text" name="title" value={this.state.title} onChange={this.handleChange} autoComplete="off" />
             </label>
             <label htmlFor="budget">
               Budget:
