@@ -5,6 +5,7 @@ export default class CategoryItem extends React.Component {
     return (
       <div className="category-item">
         <p>Hello CategoryItem!</p>
+        {this.props.children}
       </div>
     );
   }

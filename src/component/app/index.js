@@ -8,6 +8,10 @@ import DashboardContainer from '../dashboard';
 const store = createAppStore();
 
 export default class App extends React.Component {
+  componentDidMount() {
+    console.log('__STATE__', store.getState());
+  }
+
   render() {
     return (
       <section className="budget-tracker-app">
