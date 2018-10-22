@@ -20,6 +20,7 @@ describe('categoryReducer', () => {
   test('should not mutate the original state', () => {
     const state = [];
     const action = { type: 'CATEGORY_CREATE', payload: 'gas' };
+    const actual = categoryReducer(state, action);
 
     expect(state).toEqual([]);
   });
