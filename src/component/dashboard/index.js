@@ -15,7 +15,7 @@ class DashboardContainer extends React.Component {
             console.log(category);
             return (
               <li key={i}>
-                <CategoryItem>
+                <CategoryItem category={category}>
                   <CategoryForm buttonText="Update" category={category} onComplete={this.props.categoryUpdate} />
                 </CategoryItem>
               </li>

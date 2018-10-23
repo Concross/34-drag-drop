@@ -23,6 +23,12 @@ export default class CategoryForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.onComplete(Object.assign({}, this.state));
+    this.setState({
+      title: '',
+      budget: '',
+      id: '',
+      timestamp: '',
+    });
   }
 
   render() {
@@ -37,7 +43,7 @@ export default class CategoryForm extends React.Component {
             </label>
             <label htmlFor="budget">
               Budget:
-              <input type="text" name="budget" value={this.state.budget} onChange={this.handleChange} autoComplete="off" />
+              <input type="number" name="budget" value={this.state.budget} onChange={this.handleChange} autoComplete="off" />
             </label>
             <button type="submit" >{this.props.buttonText}</button>
           </fieldset>
