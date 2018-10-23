@@ -34,4 +34,24 @@ describe('categoryReducer', () => {
 
     expect(actual).toEqual(expected);
   });
+
+  test('should update an existing category among other categories if action is to update', () => {
+    const state = [{ id: 1, title: 'gas' }, { id: 2, title: 'groceries' }];
+    const action = { type: 'CATEGORY_UPDATE', payload: { id: 1, title: 'bread' } };
+
+    const actual = categoryReducer(state, action);
+    const expected = [{ id: 1, title: 'bread' }, { id: 2, title: 'groceries' }];
+
+    expect(actual).toEqual(expected);
+  });
+
+  test('should destroy an existing category if action is to update', () => {
+    const state = [{ id: 1, title: 'gas' }, { id: 2, title: 'groceries' }];
+    const action = { type: 'CATEGORY_DESTROY', payload: { id: 1 } };
+
+    const actual = categoryReducer(state, action);
+    const expected = [{ id: 2, title: 'groceries' }];
+
+    expect(actual).toEqual(expected);
+  });
 });

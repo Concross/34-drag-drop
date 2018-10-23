@@ -13,12 +13,12 @@ describe('expenseReducer', () => {
     const state = {};
     const category = {
       id: 1,
-    }
+    };
     const action = { type: 'CATEGORY_CREATE', payload: category };
     const actual = expenseReducer(state, action);
     const expected = {
       1: [],
-    }
+    };
     expect(actual).toEqual(expected);
   });
 });
