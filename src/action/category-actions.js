@@ -16,3 +16,10 @@ export const categoryUpdate = category => {
     payload: category,
   };
 };
+
+export const categoryDestroy = category => {
+  return {
+    type: 'CATEGORY_DESTROY',
+    payload: category,
+  };
+};

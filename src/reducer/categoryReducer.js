@@ -15,6 +15,14 @@ export default (state = initialState, action) => {
         return category;
       });
 
+    case 'CATEGORY_DESTROY':
+      return state.filter(category => {
+        if (category.id === payload.id) {
+          return false;
+        }
+        return true;
+      });
+
     default: return state;
   }
 };
