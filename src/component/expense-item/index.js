@@ -6,6 +6,6 @@ export default class ExpenseItem extends React.Component {
       <div className="expense-item">
         <p>hello ExpenseItem!</p>
       </div>
-    )
+    );
   }
 }
