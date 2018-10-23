@@ -3,7 +3,6 @@ import React from 'react';
 import sinon from 'sinon';
 import Adapter from 'enzyme-adapter-react-16';
 import CategoryItem from '../index';
-import { wrap } from 'module';
 
 Enzyme.configure({ adapter: new Adapter() });
 
