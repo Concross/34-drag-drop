@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import CategoryForm from '../category-form';
 import CategoryItem from '../category-item';
+import ExpenseForm from '../expense-form';
 import { categoryCreate, categoryUpdate, categoryDestroy } from '../../action/category-actions';
 import { expenseCreate, expenseUpdate, expenseDestroy } from '../../action/expense-actions';
 
@@ -17,6 +18,7 @@ export class DashboardContainer extends React.Component {
               <li key={i}>
                 <CategoryItem category={category} destroy={this.props.categoryDestroy}>
                   <CategoryForm buttonText="Update" category={category} onComplete={this.props.categoryUpdate} />
+                  <ExpenseForm />
                 </CategoryItem>
               </li>
             );
