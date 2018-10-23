@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import CategoryForm from '../category-form';
 import CategoryItem from '../category-item';
 import { categoryCreate, categoryUpdate, categoryDestroy } from '../../action/category-actions';
+import { expenseCreate, expenseUpdate, expenseDestroy } from '../../action/expense-actions';
 
 export class DashboardContainer extends React.Component {
   render() {
@@ -38,6 +39,9 @@ const mapDispatchToProps = (dispatch, getState) => {
     categoryCreate: category => dispatch(categoryCreate(category)),
     categoryUpdate: category => dispatch(categoryUpdate(category)),
     categoryDestroy: category => dispatch(categoryDestroy(category)),
+    expenseCreate: expense => dispatch(expenseCreate(expense)),
+    expenseUpdate: expense => dispatch(expenseUpdate(expense)),
+    expenseDestroy: expense => dispatch(expenseDestroy(expense)),
   };
 };
 
