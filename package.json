@@ -1,5 +1,5 @@
 {
-  "name": "32-Combining Reducers",
+  "name": "32-combining-reducers",
   "version": "1.0.0",
   "description": "Redux with React, combining reducers",
   "main": "main.js",
@@ -39,6 +39,8 @@
     "style-loader": "^0.23.1"
   },
   "dependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators": "^6.24.1",
     "babel-plugin-transform-react-constant-elements": "^6.23.0",
     "babel-plugin-transform-react-inline-elements": "^6.22.0",
     "dotenv": "^6.1.0",

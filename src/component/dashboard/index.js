@@ -4,7 +4,7 @@ import CategoryForm from '../category-form';
 import CategoryItem from '../category-item';
 import { categoryCreate, categoryUpdate, categoryDestroy } from '../../action/category-actions';
 
-class DashboardContainer extends React.Component {
+export class DashboardContainer extends React.Component {
   render() {
     return (
       <div className="dashboard-container">
