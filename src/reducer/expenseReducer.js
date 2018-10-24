@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
     case 'EXPENSE_DESTROY':
       updatedExpenses = categoryExpenses.filter(expense => expense.id !== payload.id);
 
-      return { ...state, [payload.categoryId]: updatedExpenses }
+      return { ...state, [payload.categoryId]: updatedExpenses };
 
     default: return state;
   }

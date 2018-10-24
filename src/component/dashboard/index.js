@@ -25,7 +25,7 @@ export class DashboardContainer extends React.Component {
             return (
               <li key={expense.id}>
                 <ExpenseItem expense={expense} actions={this.props.actions}>
-                  <ExpenseForm expense={expense} categoryId={categoryId} onComplete={this.props.actions.expenseUpdate} />
+                  <ExpenseForm expense={expense} buttonText="Update" categoryId={categoryId} onComplete={this.props.actions.expenseUpdate} />
                 </ExpenseItem>
               </li>
             );
@@ -38,7 +38,7 @@ export class DashboardContainer extends React.Component {
   render() {
     return (
       <div className="dashboard-container">
-        <p>Hello Dashboard!</p>
+        <h1>React Budget Tracker</h1>
         <CategoryForm onComplete={this.props.actions.categoryCreate} buttonText="Create" />
         <ul>
           {this.props.categories.map((category, i) => {
@@ -46,7 +46,7 @@ export class DashboardContainer extends React.Component {
               <li key={i}>
                 <CategoryItem category={category} actions={this.props.actions}>
                   <CategoryForm buttonText="Update" category={category} onComplete={this.props.actions.categoryUpdate} />
-                  <ExpenseForm onComplete={this.props.actions.expenseCreate} categoryId={category.id} />
+                  <ExpenseForm onComplete={this.props.actions.expenseCreate} buttonText="Create" categoryId={category.id} />
                   {this.expenses(category.id)}
                 </CategoryItem>
               </li>

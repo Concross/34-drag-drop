@@ -1,0 +1,13 @@
+.category-item {
+  margin: 10px;
+  text-align: left;
+  outline: 1px solid blue;
+  background-color: cadetblue;
+  width: 50%;
+  padding-left: 5px;
+
+  #delete-button {
+    float: left;
+    margin-right: 10px;
+  }
+}

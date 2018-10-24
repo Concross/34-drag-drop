@@ -41,7 +41,7 @@ export default class ExpenseForm extends React.Component {
               Cost:
               <input type="number" name="cost" value={this.state.cost} onChange={this.handleChange} autoComplete="off" />
             </label>
-            <button type="submit">Create</button>
+            <button type="submit">{this.props.buttonText}</button>
           </fieldset>
         </form>
       </div>
