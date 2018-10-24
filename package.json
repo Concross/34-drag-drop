@@ -9,6 +9,11 @@
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint **/*.js"
   },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(scss|css|less)$": "identity-obj-proxy"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Concross/32-combine-reducers.git"
@@ -34,6 +39,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
+    "identity-obj-proxy": "^3.0.0",
     "node-sass": "^4.9.4",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1"
