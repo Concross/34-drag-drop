@@ -18,7 +18,7 @@ export class DashboardContainer extends React.Component {
               <li key={i}>
                 <CategoryItem category={category} destroy={this.props.categoryDestroy}>
                   <CategoryForm buttonText="Update" category={category} onComplete={this.props.categoryUpdate} />
-                  <ExpenseForm />
+                  <ExpenseForm onComplete={this.props.expenseCreate} categoryId={category.id} />
                 </CategoryItem>
               </li>
             );

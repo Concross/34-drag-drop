@@ -23,12 +23,6 @@ export default class CategoryForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.onComplete(Object.assign({}, this.state));
-    this.setState({
-      title: '',
-      budget: '',
-      id: '',
-      timestamp: '',
-    });
   }
 
   render() {
