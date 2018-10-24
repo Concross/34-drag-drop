@@ -8,7 +8,12 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('ExpenseItem component', () => {
   test('should exist on render', () => {
-    const wrapper = Enzyme.shallow(<ExpenseItem />);
+    const expense = {
+      title: 'title',
+      cost: 4,
+    };
+
+    const wrapper = Enzyme.shallow(<ExpenseItem expense={expense} />);
 
     expect(wrapper.exists()).toBe(true);
   });

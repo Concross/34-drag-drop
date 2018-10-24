@@ -30,10 +30,13 @@ describe('CategoryItem component', () => {
       budget: 42,
     };
 
-    const destroy = sinon.spy();
+    const actions = {
+      categoryDestroy: sinon.spy(),
+    };
+
     const handleClick = sinon.spy(CategoryItem.prototype, 'handleClick');
 
-    const wrapper = Enzyme.shallow(<CategoryItem category={category} destroy={destroy} />);
+    const wrapper = Enzyme.shallow(<CategoryItem category={category} actions={actions} />);
 
     wrapper.find('button').simulate('click');
     expect(handleClick.calledOnce).toBe(true);
