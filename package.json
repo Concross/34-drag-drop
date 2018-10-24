@@ -1,5 +1,5 @@
 {
-  "name": "32-Combining Reducers",
+  "name": "32-combining-reducers",
   "version": "1.0.0",
   "description": "Redux with React, combining reducers",
   "main": "main.js",
@@ -8,6 +8,11 @@
     "watch": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint **/*.js"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(scss|css|less)$": "identity-obj-proxy"
+    }
   },
   "repository": {
     "type": "git",
@@ -34,11 +39,14 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
+    "identity-obj-proxy": "^3.0.0",
     "node-sass": "^4.9.4",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1"
   },
   "dependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators": "^6.24.1",
     "babel-plugin-transform-react-constant-elements": "^6.23.0",
     "babel-plugin-transform-react-inline-elements": "^6.22.0",
     "dotenv": "^6.1.0",

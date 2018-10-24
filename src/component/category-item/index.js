@@ -8,7 +8,7 @@ export default class CategoryItem extends React.Component {
   }
 
   handleClick(e) {
-    this.props.destroy(this.props.category);
+    this.props.actions.categoryDestroy(this.props.category);
   }
 
   render() {

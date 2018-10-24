@@ -1,0 +1,30 @@
+.category-form-container {
+  max-width: 80%;
+  width: 50%;
+  
+  form {
+    width: 100%;
+    
+    fieldset {
+      text-align: left;
+      width: 80%;
+    }
+    
+    label {
+      text-align: right;
+      display: block;
+      width: 80%;
+      margin: 5px;
+    }
+    
+    input {
+      width: 60%;
+      margin-left: 1em;
+    }
+    
+    button {
+      float: right;
+      width: 100%;
+    }
+  }
+}
