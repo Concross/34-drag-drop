@@ -22,11 +22,9 @@ export class DashboardContainer extends React.Component {
       return (
         <ul>
           {categoryExpenses.map((expense) => {
-            console.log(expense);
-
             return (
               <li key={expense.id}>
-                <ExpenseItem expense={expense} >
+                <ExpenseItem expense={expense} actions={this.props.actions}>
                   <ExpenseForm expense={expense} categoryId={categoryId} onComplete={this.props.actions.expenseUpdate} />
                 </ExpenseItem>
               </li>
