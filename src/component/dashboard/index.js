@@ -3,10 +3,33 @@ import { connect } from 'react-redux';
 import CategoryForm from '../category-form';
 import CategoryItem from '../category-item';
 import ExpenseForm from '../expense-form';
+import ExpenseItem from '../expense-item';
+
 import { categoryCreate, categoryUpdate, categoryDestroy } from '../../action/category-actions';
 import { expenseCreate, expenseUpdate, expenseDestroy } from '../../action/expense-actions';
 
 export class DashboardContainer extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.expenses = this.expenses.bind(this);
+  }
+
+  expenses(categoryId) {
+    if (this.props.expenses[categoryId].length) {
+      return (
+        <ul>
+          {this.props.expenses[categoryId].map((expense) => {
+            return (
+              <li key={expense.id}>
+                <ExpenseItem />
+              </li>
+            );
+          })}
+        </ul>
+      );
+    }
+  }
   render() {
     return (
       <div className="dashboard-container">
@@ -19,6 +42,7 @@ export class DashboardContainer extends React.Component {
                 <CategoryItem category={category} destroy={this.props.categoryDestroy}>
                   <CategoryForm buttonText="Update" category={category} onComplete={this.props.categoryUpdate} />
                   <ExpenseForm onComplete={this.props.expenseCreate} categoryId={category.id} />
+                  {this.expenses(category.id)}
                 </CategoryItem>
               </li>
             );
