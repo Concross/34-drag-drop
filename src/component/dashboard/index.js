@@ -16,13 +16,19 @@ export class DashboardContainer extends React.Component {
   }
 
   expenses(categoryId) {
-    if (this.props.expenses[categoryId].length) {
+    const categoryExpenses = this.props.expenses[categoryId];
+
+    if (categoryExpenses.length) {
       return (
         <ul>
-          {this.props.expenses[categoryId].map((expense) => {
+          {categoryExpenses.map((expense) => {
+            console.log(expense);
+
             return (
               <li key={expense.id}>
-                <ExpenseItem />
+                <ExpenseItem expense={expense} >
+                  <ExpenseForm expense={expense} categoryId={categoryId} onComplete={this.props.actions.expenseUpdate} />
+                </ExpenseItem>
               </li>
             );
           })}
@@ -30,18 +36,19 @@ export class DashboardContainer extends React.Component {
       );
     }
   }
+
   render() {
     return (
       <div className="dashboard-container">
         <p>Hello Dashboard!</p>
-        <CategoryForm onComplete={this.props.categoryCreate} buttonText="Create" />
+        <CategoryForm onComplete={this.props.actions.categoryCreate} buttonText="Create" />
         <ul>
           {this.props.categories.map((category, i) => {
             return (
               <li key={i}>
-                <CategoryItem category={category} destroy={this.props.categoryDestroy}>
-                  <CategoryForm buttonText="Update" category={category} onComplete={this.props.categoryUpdate} />
-                  <ExpenseForm onComplete={this.props.expenseCreate} categoryId={category.id} />
+                <CategoryItem category={category} actions={this.props.actions}>
+                  <CategoryForm buttonText="Update" category={category} onComplete={this.props.actions.categoryUpdate} />
+                  <ExpenseForm onComplete={this.props.actions.expenseCreate} categoryId={category.id} />
                   {this.expenses(category.id)}
                 </CategoryItem>
               </li>
@@ -62,12 +69,14 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, getState) => {
   return {
-    categoryCreate: category => dispatch(categoryCreate(category)),
-    categoryUpdate: category => dispatch(categoryUpdate(category)),
-    categoryDestroy: category => dispatch(categoryDestroy(category)),
-    expenseCreate: expense => dispatch(expenseCreate(expense)),
-    expenseUpdate: expense => dispatch(expenseUpdate(expense)),
-    expenseDestroy: expense => dispatch(expenseDestroy(expense)),
+    actions: {
+      categoryCreate: category => dispatch(categoryCreate(category)),
+      categoryUpdate: category => dispatch(categoryUpdate(category)),
+      categoryDestroy: category => dispatch(categoryDestroy(category)),
+      expenseCreate: expense => dispatch(expenseCreate(expense)),
+      expenseUpdate: expense => dispatch(expenseUpdate(expense)),
+      expenseDestroy: expense => dispatch(expenseDestroy(expense)),
+    },
   };
 };
 

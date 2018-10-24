@@ -1,15 +1,16 @@
 import React from 'react';
+import './style.scss';
 
 export default class ExpenseForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      id: this.props.expense ? this.props.expense.id : '',
-      categoryId: this.props.categoryId || '',
+      id: this.props.expense ? this.props.expense.id : null,
+      categoryId: this.props.categoryId || null,
       cost: this.props.expense ? this.props.expense.cost : '',
       title: this.props.expense ? this.props.expense.title : '',
-      timestamp: this.props.expense ? this.props.expense.timestamp : '',
+      timestamp: this.props.expense ? this.props.expense.timestamp : null,
     };
 
     this.handleChange = this.handleChange.bind(this);
