@@ -24,3 +24,31 @@ export const categoryCreateValidator = store => next => action => {
     return next(action);
   }
 };
+
+export const expenseCreateValidator = store => next => action => {
+  const isExpense = action.type && action.type.startsWith('EXPENSE');
+
+  if (isExpense) {
+    try {
+      const expense = action.payload;
+      const categories = store.getState().categories;
+      let budget = null;
+      categories.some(category => {
+        if (category.id === expense.categoryId) {
+          budget = category.budget;
+          return true;
+        }
+        return false;
+      });
+      if (expense.cost > budget) {
+        throw new Error('VALIDATION ERROR: expense must not exceed the budget');
+      }
+      return next(action);
+    } catch (e) {
+      e.action = action;
+      throw e;
+    }
+  } else {
+    return next(action);
+  }
+};

@@ -1,11 +1,12 @@
 import { createStore, applyMiddleware } from 'redux';
 import reducer from '../reducer';
 import logger from './middleware/logger';
-import { categoryCreateValidator } from './middleware/validator';
+import { categoryCreateValidator, expenseCreateValidator } from './middleware/validator';
 
 export default () => createStore(
   reducer,
   applyMiddleware(
     logger,
-    categoryCreateValidator
+    categoryCreateValidator,
+    expenseCreateValidator,
   ));
