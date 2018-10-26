@@ -29,3 +29,15 @@ describe('categoryCreate action', () => {
     expect(actual).toEqual(expected);
   });
 });
+
+describe('categoryUpdate action', () => {
+  test('should return the expected action object', () => {
+    const actual = categoryUpdate(category);
+    const expected = {
+      type: 'CATEGORY_UPDATE',
+      payload: category,
+    };
+
+    expect(actual).toEqual(expected);
+  });
+});
