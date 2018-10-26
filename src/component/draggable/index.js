@@ -8,7 +8,7 @@ export default class Draggable extends React.Component {
   }
 
   handleDragStart(e) {
-    let json = JSON.stringify(this.props.dataTransferItem)
+    let json = JSON.stringify(this.props.dataTransferItem);
     e.dataTransfer.setData('application/json', json);
   }
 
