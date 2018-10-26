@@ -57,4 +57,24 @@ describe('expenseReducer', () => {
 
     expect(actual).toEqual(expected);
   });
+
+  test('should delete an expense if action is EXPENSE_DESTROY', () => {
+    const expense = {
+      title: 'title',
+      cost: 55,
+      categoryId: 1,
+    };
+
+    const state = {
+      1: [expense],
+    };
+
+    const action = { type: 'EXPENSE_DESTROY', payload: expense };
+    const actual = expenseReducer(state, action);
+    const expected = {
+      1: [],
+    };
+
+    expect(actual).toEqual(expected);
+  });
 });
