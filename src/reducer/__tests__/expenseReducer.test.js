@@ -77,4 +77,32 @@ describe('expenseReducer', () => {
 
     expect(actual).toEqual(expected);
   });
+
+  test('should update an expense if action is EXPENSE_DESTROY', () => {
+    const ogExpense = {
+      id: 10,
+      title: 'title',
+      cost: 55,
+      categoryId: 1,
+    };
+
+    const state = {
+      1: [ogExpense],
+    };
+
+    const updatedExpense = {
+      id: 10,
+      title: 'New Title!',
+      cost: 100,
+      categoryId: 1,
+    };
+
+    const action = { type: 'EXPENSE_UPDATE', payload: updatedExpense };
+    const actual = expenseReducer(state, action);
+    const expected = {
+      1: [updatedExpense],
+    };
+
+    expect(actual).toEqual(expected);
+  });
 });
