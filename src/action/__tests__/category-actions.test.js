@@ -41,3 +41,15 @@ describe('categoryUpdate action', () => {
     expect(actual).toEqual(expected);
   });
 });
+
+describe('categoryDestroy action', () => {
+  test('should return the expected actiont', () => {
+    const actual = categoryDestroy(category);
+    const expected = {
+      type: 'CATEGORY_DESTROY',
+      payload: category,
+    };
+
+    expect(actual).toEqual(expected);
+  });
+});
